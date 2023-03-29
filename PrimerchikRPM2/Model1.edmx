@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище AbonentModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Abonent.dbo.Abonent" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Abonent">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Fio" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Fio" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="Age" Type="date" />
+          <Property Name="Inn" Type="nvarchar" MaxLength="12" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityContainer Name="Хранилище AbonentModelContainer">
+          <EntitySet Name="Abonent" EntityType="Self.Abonent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Abonent].[Id] AS [Id], 
+    [Abonent].[Fio] AS [Fio], 
+    [Abonent].[Gender] AS [Gender], 
+    [Abonent].[Age] AS [Age], 
+    [Abonent].[Inn] AS [Inn], 
+    [Abonent].[Phone] AS [Phone], 
+    [Abonent].[Photo] AS [Photo]
+    FROM [dbo].[Abonent] AS [Abonent]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AbonentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Abonent">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Fio" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Fio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="DateTime" Precision="0" />
+          <Property Name="Inn" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="AbonentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abonents" EntityType="Self.Abonent" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AbonentModelContainer" CdmEntityContainer="AbonentEntities">
+          <EntitySetMapping Name="Abonents">
+            <EntityTypeMapping TypeName="AbonentModel.Abonent">
+              <MappingFragment StoreEntitySet="Abonent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fio" ColumnName="Fio" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Inn" ColumnName="Inn" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
