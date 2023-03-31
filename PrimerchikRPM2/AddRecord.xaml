@@ -5,16 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrimerchikRPM2"
         mc:Ignorable="d"
-        Title="AddRecord" Height="450" Width="250">
+        Title="AddRecord" Height="450" Width="180">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="ФИО"
-                   Margin="20"/>
-        <TextBox/>
+                   Margin="10,15,10,37"/>
+
+        <TextBox Margin="10,35,30,20"
+                 x:Name="FIO"/>
+
+        <TextBlock Text="Пол"
+                   Margin="10,15,10,37"
+                   Grid.Row="1"/>
+
+        <ComboBox Margin="10,35,30,15"
+                 x:Name="Gender"
+                 Grid.Row="1">
+            <ComboBoxItem>
+                <TextBlock Text="Муж."/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Жен."/>
+            </ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Text="Возраст"
+                   Margin="10,15,10,37"
+                   Grid.Row="2"/>
+
+        <DatePicker Margin="10,35,30,10"
+                    x:Name="AgePicker"
+                    Grid.Row="2"/>
+
+        <TextBlock Text="ИНН"
+                   Margin="10,15,10,37"
+                   Grid.Row="3"/>
+
+        <TextBox Margin="10,35,30,20"
+                 x:Name="INN"
+                 Grid.Row="3"/>
+
+        <TextBlock Text="Телефон"
+                   Margin="10,15,10,37"
+                   Grid.Row="4"/>
+
+        <TextBox Margin="10,35,30,20"
+                 x:Name="Number"
+                 Grid.Row="4"/>
+
+        <Button Grid.Row="5"
+                Margin="10,20,100,20"
+                Content="Добавить"
+                Click="Add"/>
+
+        <Button Grid.Row="5"
+                Margin="100,20,10,20"
+                Content="Отмена"
+                Click="Cancel"/>
+
     </Grid>
 </Window>
